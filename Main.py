@@ -1,7 +1,7 @@
 # File: main.py
 import CSV_Parser as parser
-import f01
-import help
+import Fungsi.f01 as f01
+import Fungsi.help as help
 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
@@ -10,9 +10,9 @@ candi = [] # Matriks data candi
 bahan_bangunan = [] # Data bahan bangunan
 role=0 # 0 =belum login  ; 1=Bondowoso ; 2=Rorojongrang , 3=jin pembangun ,  4=jin pengumpul
 
-users=parser.load("user.csv")
-candi=parser.load("candi.csv")
-bahan_bangunan=parser.load("bahan_bangunan.csv")
+users=parser.load("FileCSV/user.csv")
+candi=parser.load("FileCSV/candi.csv")
+bahan_bangunan=parser.load("FileCSV/bahan_bangunan.csv")
 
 def options(commands):
   global users

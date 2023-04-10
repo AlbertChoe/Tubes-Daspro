@@ -36,8 +36,3 @@ def load(csv):
             break
         result=append(result,result_temp)
     return result
-
-
-
-users=load("user.csv")
-print(users)
