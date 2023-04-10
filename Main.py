@@ -7,6 +7,7 @@ import f01
 users = [] # Matriks data user
 candi = [] # Matriks data candi
 bahan_bangunan = [] # Data bahan bangunan
+role=0
 
 users=parser.load("user.csv")
 candi=parser.load("candi.csv")
@@ -16,9 +17,11 @@ def options(commands):
   global users
   global candi
   global bahan_bangunan
+  global role
 
   if commands=="login":
     return f01.login(users)
+  
   
 
 print(users)

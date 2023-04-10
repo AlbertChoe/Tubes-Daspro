@@ -3,14 +3,26 @@ def splitter(kata,token):
     temp = ""
     
     for i in range(length(kata)):
-        if kata[i] == token:
-            result.append(temp)
+        if kata[i] == token :
+            result=append(result,temp)
             temp = ""
         else:
             temp += (kata[i])
             
-    result.append(temp)
+    result=append(result,temp)
     return result
+
+def append(list,x):
+    list=[*list,x]
+    return list
+
+def length (list):
+    list_temp=append(list,"%")
+    j=0
+    while list_temp[j]!="%":
+        j+=1
+    return j
+
 
 def load(csv):
     file = open(csv, "r")
@@ -20,14 +32,10 @@ def load(csv):
         result_temp = splitter((row.strip()),";")
         if not result_temp:
             break
-        result.append(result_temp)
+        result=append(result,result_temp)
     return result
 
-def length(word):
-    count=0
-    for i in word :
-        count+=1
-    return count
+
 
 users=load("user.csv")
 print(users)
