@@ -1,19 +1,21 @@
 import CSV_Parser as parser
-def login(users,role):
+
+def login(user,role):
     username=input("Username: ")
     password=input("Password: ")
-    for i in range (1,parser.length(users)):
-        if users[i]==username:
-            for j in range (1,3):
-                if password==users[i][j]:
-                    print (f'\nSelamat datang, {username}!\nMasukkan command “help” untuk daftar command yang dapat kamu panggil.')
-                    role=users[i][j][2]
-                    return role
+    for i in range (1,parser.length(user)):
+        if user[i][0]==username:
+            if password==user[i][1]:
+                print (f'\nSelamat datang, {username}!\nMasukkan command “help” untuk daftar command yang dapat kamu panggil.')
+                role=user[i][2]
+                return role,username
             else:
-                print()
-                print("Password Salah")
-                return
+                print("\nPassword Salah")
+                return 0,0
     else:
-        print()
-        print("Username tidak terdaftar")
+        print("\nUsername tidak terdaftar")
+        return 0,0
+
+
+
 

@@ -7,7 +7,7 @@ def help(role):
         print("   Untuk memuat file eksternal ke dalam permainan")
         print("3. exit")
         print("   Untuk keluar dari permainan")
-    elif role=="1":
+    elif role=="bandung_bondowoso":
         print("===================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
@@ -28,7 +28,7 @@ def help(role):
         print("9. save")
         print("   Untuk menyimpan data")
 
-    elif role=="2":
+    elif role=="roro_jonggrang":
         print("===================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
@@ -39,14 +39,14 @@ def help(role):
         print("4. save")
         print("   Untuk menyimpan data")
     
-    elif role=="3":
+    elif role=="jin_pembangun":
         print("====================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
         print("2. bangun")
         print("   Untuk membangun candi")
     
-    elif role=="4":
+    elif role=="jin_pengumpul":
         print("====================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")

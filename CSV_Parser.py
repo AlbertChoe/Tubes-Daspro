@@ -1,7 +1,6 @@
 def splitter(kata,token):
     result = []
     temp = ""
-    
     for i in range(length(kata)):
         if kata[i] == token  :
             result=append(result,temp)
