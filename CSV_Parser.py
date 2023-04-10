@@ -3,14 +3,16 @@ def splitter(kata,token):
     temp = ""
     
     for i in range(length(kata)):
-        if kata[i] == token :
+        if kata[i] == token  :
             result=append(result,temp)
             temp = ""
+        elif kata[i]=="\n":
+            result=append(result,temp)
+            return result
         else:
             temp += (kata[i])
             
-    result=append(result,temp)
-    return result
+    
 
 def append(list,x):
     list=[*list,x]
@@ -29,7 +31,7 @@ def load(csv):
     result = []
     
     for row in file:
-        result_temp = splitter((row.strip()),";")
+        result_temp = splitter(row,";")
         if not result_temp:
             break
         result=append(result,result_temp)

@@ -1,6 +1,7 @@
 # File: main.py
 import CSV_Parser as parser
 import f01
+import help
 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
@@ -21,7 +22,8 @@ def options(commands):
 
   if commands=="login":
     if role==0 :
-      return f01.login(users)
+      role=f01.login(users, role)
+      return 
     
   elif commands=="logout":
     if role==1 or role==2:
@@ -94,3 +96,4 @@ def options(commands):
 while True:
   masukan = input(">>> ")
   options(masukan)
+  print(role)
