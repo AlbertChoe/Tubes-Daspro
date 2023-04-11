@@ -10,10 +10,10 @@ import Fungsi.BonusRNG as RNG
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
 users = [] # Matriks data user
-candi = [] # Matriks data candi
-bahan_bangunan = [] # Data bahan bangunan
-jinBangun=[] #Isi jin yang bangun tiap candi kalo diremove ditaruh -1 semua , file cuma dibaca yang bukan -1
-jinKumpul=[] #isi total bahan yang dikumpul tiap jin
+candi = [] # Matriks data candi.
+bahan_bangunan = [] # Data bahan bangunan 
+jinBangun=[] #Isi jin yang bangun tiap candi kalo diremove ditaruh -1 semua , file cuma dibaca yang bukan -1 
+jinKumpul=[] 
 role=0  #0=belum login
 username=0   #0=belum login
 
@@ -91,7 +91,6 @@ def options(commands):
     if role=="bandung_bondowoso" or role=="roro_jonggrang":
       return 0
     
-  
   elif commands=="help":
     if role==0:
       return f15.help(0)
@@ -104,8 +103,7 @@ def options(commands):
     elif role=="jin_pengumpul":
       return f15.help("jin_pengumpul")
   
-  
-  
+
 #Program yang di run
 while True:
   print(users)
