@@ -1,16 +1,18 @@
 # File: main.py
-import CSV_Parser as parser
-from Fungsi import f01
-from Fungsi import f15 
-from Fungsi import f02
-from Fungsi import BonusRNG as Random
+import Fungsi.CSV_Parser as parser
+import Fungsi.f01 as f01
+import Fungsi.f02 as f02
+import Fungsi.f03 as f03
+import Fungsi.f04 as f04
+import Fungsi.f15 as f15 
+import Fungsi.BonusRNG as RNG
 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
 users = [] # Matriks data user
 candi = [] # Matriks data candi
 bahan_bangunan = [] # Data bahan bangunan
-jinBangun=[] #Isi jin yang bangun tiap candi
+jinBangun=[] #Isi jin yang bangun tiap candi kalo diremove ditaruh -1 semua , file cuma dibaca yang bukan -1
 jinKumpul=[] #isi total bahan yang dikumpul tiap jin
 role=0  #0=belum login
 username=0   #0=belum login
@@ -30,20 +32,23 @@ def options(commands):
 
   if commands=="login":
     if role==0 :
-      role,username=f01.login(users, role)
-      return role,username
+      role,username= f01.login(users, role)
+      return 
     
   elif commands=="logout":
       role,username=f02.logout(role,username)
-      return role,username
-    
+      return 
     
   elif commands=="summonjin":
     if role=="bandung_bondowoso" :
-      return 0
+      users=f03.summonjin(users)
+      return
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
   
   elif commands=="hapusjin":
     if role=="bandung_bondowoso" :
+      users=f04.hapusjin(users)
       return 
   
   elif commands=="ubahjin":
@@ -103,7 +108,8 @@ def options(commands):
   
 #Program yang di run
 while True:
-  masukan = input(">>> ")
-  options(masukan)
   print(users)
   print(role,username)
+  masukan = input(">>> ")
+  options(masukan)
+  

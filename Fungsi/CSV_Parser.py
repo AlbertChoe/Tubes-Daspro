@@ -11,8 +11,6 @@ def splitter(kata,token):
         else:
             temp += (kata[i])
             
-    
-
 def append(list,x):
     list=[*list,x]
     return list

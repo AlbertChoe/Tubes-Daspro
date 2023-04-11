@@ -1,5 +1,4 @@
-import CSV_Parser as parser
-
+import Fungsi.CSV_Parser as parser
 def login(user,role):
     username=input("Username: ")
     password=input("Password: ")
@@ -15,7 +14,3 @@ def login(user,role):
     else:
         print("\nUsername tidak terdaftar")
         return 0,0
-
-
-
-
