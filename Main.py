@@ -34,6 +34,8 @@ def options(commands):
     if role==0 :
       role,username= f01.login(users, role)
       return 
+    else:
+      print("\nSilahkan logout dari account sekarang agar bisa login kembali.\n")
     
   elif commands=="logout":
       role,username=f02.logout(role,username)
@@ -49,11 +51,15 @@ def options(commands):
   elif commands=="hapusjin":
     if role=="bandung_bondowoso" :
       users=f04.hapusjin(users)
-      return 
+      return
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
   
   elif commands=="ubahjin":
     if role=="bandung_bondowoso":
       return 0
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
   
   elif commands=="bangun":
     if role=="jin_pembangun":
