@@ -1,1 +1,6 @@
 import random 
+
+#sudah harus ada users dan variabel bahan_bangunan 
+
+def kumpul():
+
