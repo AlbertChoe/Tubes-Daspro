@@ -1,21 +1,38 @@
-import random 
-
-# sudah ada users dan variabel bahan_bangunan
-
-def kumpul():
-    allowed_users = ["Bondowoso", "Roro"]
-    if username in allowed_users or role != "jin_pengumpul":
-        print("Hanya jin pengumpul yang dapat mengumpulkan bahan.")
-        return None
-    pasir = random.randint(0, 5)
-    batu = random.randint(0, 5)
-    air = random.randint(0, 5)
-    print("Jin found:", pasir, "sand,", batu, "stone,", air, "water")
-    for i in range(len(bahan_bangunan)):
-        if bahan_bangunan[i][0] == "pasir":
-            bahan_bangunan[i][2] += pasir
-        elif bahan_bangunan[i][0] == "batu":
-            bahan_bangunan[i][2] += batu
-        elif bahan_bangunan[i][0] == "air":
-            bahan_bangunan[i][2] += air
-    return None
+import Fungsi.CSV_Parser as parser
+import random
+def ubah (users):
+    username= input("Masukkan username jin : ")
+    counter = 0
+    for i in range (parser.length(users)) :
+        if (username == users[i][0]):
+            counter = 1
+            if (users[i][2]== "jin_pengumpul"):
+                persetujuan=input("\nJin ini bertipe 'Pengumpul'. Yakin ingin mengubah ke tipe 'Pembangun' (Y/N)? ")
+                if (persetujuan == "Y") or persetujuan=="y":
+                    users[i][2] = "jin_pembangun"
+                    print("Jin telah berhasil diubah.")
+                    return users
+                elif (persetujuan =="N") or persetujuan=="n":
+                    print("Jin tidak jadi diubah")
+                    return users
+                else :
+                    print("input invalid (Y/N)")  
+                    return users              
+            elif (users[i][2]== "jin_pembangun"):
+                persetujuan=input("\nJin ini bertipe 'Pembangun'. Yakin ingin mengubah ke tipe 'Pengumpul' (Y/N)? ")
+                if (persetujuan == "Y")or persetujuan=="y":
+                    users[i][2] = "jin_pengumpul"
+                    print("Jin telah berhasil diubah.")
+                    return users
+                elif (persetujuan =="N")or persetujuan=="n":
+                    print ( "Jin tidak jadi diubah")
+                    return users
+                else :
+                    print("input invalid (Y/N)")
+                    return users
+            else:
+                print("id terdaftar namun bukan jin pengumpul maupun pembangun")
+                return users
+    if (counter == 0): # Jika username jin tidak tersedia
+        print("Tidak ada jin dengan username tersebut.")
+        return users
