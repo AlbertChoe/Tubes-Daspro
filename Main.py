@@ -5,6 +5,10 @@ import Fungsi.f02 as f02
 import Fungsi.f03 as f03
 import Fungsi.f04 as f04
 import Fungsi.f13 as f13
+import Fungsi.f05 as f05
+import Fungsi.f07 as f07
+import Fungsi.f08 as f08
+import Fungsi.f09 as f09
 import Fungsi.f15 as f15 
 import Fungsi.BonusRNG as RNG
 
@@ -56,29 +60,40 @@ def options(commands):
   
   elif commands=="ubahjin":
     if role=="bandung_bondowoso":
-      return 0
+      users=f05.ubah(users)
+      return 
     else:
       print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
   
   elif commands=="bangun":
     if role=="jin_pembangun":
-      return 0
+      return 
+    else:
+      print("\nHanya jin pembangun yang dapat membangun candi.\n")
   
   elif commands=="kumpul":
     if role=="jin_pengumpul":
-      return 0
+      bahan_bangunan,pasir,batu,air=f07.kumpul(bahan_bangunan)
+      return bahan_bangunan
+    else:
+      print("\nHanya jin pengumpul yang dapat mengumpulkan bahan.\n")
   
   elif commands=="batchkumpul":
     if role=="bandung_bondowoso":
-      return 0
+      bahan_bangunan=f08.batchkumpul(users,bahan_bangunan)
+      return bahan_bangunan
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
   
   elif commands=="batchbangun":
     if role=="bandung_bondowoso":
-      return 0
+      jinBangun,bahan_bangunan,candi=f08.batchbangun(users,jinBangun,bahan_bangunan,candi)
+      return jinBangun,bahan_bangunan,candi
   
   elif commands=="laporanjin":
     if role=="bandung_bondowoso":
-      return 0
+      jinBangun=f09.laporanjin(users,jinBangun,bahan_bangunan)
+      return jinBangun
   
   elif commands=="laporancandi":
     if role=="bandung_bondowoso":
