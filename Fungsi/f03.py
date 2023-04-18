@@ -6,6 +6,7 @@ def validasiPassword(password):
     else:
         print("Password panjangnya harus 5-25 karakter!")
         return False
+    
 def validasiNama(namaJin,user_csv):
     for i in range(parser.length(user_csv)):
         if user_csv[i][0]==namaJin :
@@ -42,7 +43,7 @@ def summonjin(user_csv:list[str]):
                     user_csv=parser.append(user_csv,[namaJin,password,"jin_pengumpul"])
                     return user_csv
         elif jenisJin==2:
-            print("\nMemilih jin “Pengumpul”.")
+            print("\nMemilih jin “Pembangun”.")
             namaJin=input("Masukkan username jin : ")
             while not validasiNama(namaJin,user_csv) :
                 namaJin=input("Masukkan username jin : ")     

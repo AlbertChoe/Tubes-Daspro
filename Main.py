@@ -4,6 +4,7 @@ import Fungsi.f01 as f01
 import Fungsi.f02 as f02
 import Fungsi.f03 as f03
 import Fungsi.f04 as f04
+import Fungsi.f13 as f13
 import Fungsi.f15 as f15 
 import Fungsi.BonusRNG as RNG
 
@@ -11,15 +12,13 @@ import Fungsi.BonusRNG as RNG
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
 users = [] # Matriks data user
 candi = [] # Matriks data candi.
-bahan_bangunan = [] # Data bahan bangunan 
+bahan_bangunan = [] # Data bahan bangunan.
 jinBangun=[] #Isi jin yang bangun tiap candi kalo diremove ditaruh -1 semua , file cuma dibaca yang bukan -1 
 jinKumpul=[] 
 role=0  #0=belum login
 username=0   #0=belum login
 
-users=parser.load("FileCSV/user.csv")
-candi=parser.load("FileCSV/candi.csv")
-bahan_bangunan=parser.load("FileCSV/bahan_bangunan.csv")
+users,candi,bahan_bangunan = f13.load()
 
 def options(commands):
   global users

@@ -18,6 +18,7 @@ def RNGKumpul(): #yang dipakai untuk generate 3 random number
         random_num = seed % 6
         result.append(random_num)
     return result[0],result[1],result[2]
+
 def RNGBangun(): #yang dipakai untuk generate 3 random number 
     seed = int(time.time()*1000)
     multiplier = 1103515245
