@@ -4,24 +4,27 @@ import Fungsi.f01 as f01
 import Fungsi.f02 as f02
 import Fungsi.f03 as f03
 import Fungsi.f04 as f04
-import Fungsi.f13 as f13
 import Fungsi.f05 as f05
 import Fungsi.f07 as f07
 import Fungsi.f08 as f08
 import Fungsi.f09 as f09
+import Fungsi.f13 as f13
 import Fungsi.f14 as f14
 import Fungsi.f15 as f15 
+import Fungsi.f16 as f16 
 import Fungsi.BonusRNG as RNG
 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
-users = [] # Matriks data user
-candi = [] # Matriks data candi.
-bahan_bangunan = [] # Data bahan bangunan.
-jinBangun=[] #Isi jin yang bangun tiap candi kalo diremove ditaruh -1 semua , file cuma dibaca yang bukan -1 
-jinKumpul=[] 
+users = [0 for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
+candi = [0 for i in range (100) ] # Matriks data candi. (maksimal 100 candi)
+bahan_bangunan = [0 for i in range (3)] # Matriks Data bahan bangunan. (ada pasir, batu sama air )
+jinBangun=[0 for i in range (100)] #Isi jin yang bangun tiap candi kalo diremove ditaruh 0 semua , file cuma dibaca yang bukan 0 () Struktur matriks = [namajin,Totalcandiyangdibuat]
+jinKumpul = [0 for i in range(100)]
 role=0  #0=belum login
 username=0   #0=belum login
+file = (users, candi, bahan_bangunan)
+fileName = ('user.csv', 'candi.csv', 'bahan_bangunan.csv')
 
 users,candi,bahan_bangunan = f13.load()
 
@@ -44,6 +47,10 @@ def options(commands):
   elif commands=="logout":
       role,username=f02.logout(role,username)
       return 
+  
+  elif commands=="exit":
+      if role==0:
+        f16.exit(file, fileName)
     
   elif commands=="summonjin":
     if role=="bandung_bondowoso" :
@@ -110,9 +117,7 @@ def options(commands):
   
   elif commands=="save":
     if role=="bandung_bondowoso" or role=="roro_jonggrang":
-      f14.save(users, 'user.csv')
-      f14.save(candi, 'candi.csv')
-      f14.save(bahan_bangunan, 'bahan_bangunan.csv')
+      f14.save(file, fileName)
     
   elif commands=="help":
     if role==0:
