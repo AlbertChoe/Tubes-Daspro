@@ -12,29 +12,30 @@ def save(file, fileName):
         print(f"Membuat folder save/{folder}...")
         os.mkdir(f'save\\{folder}')
     
-    with open(f'save\\{folder}\\{fileName}', 'w') as f:
-        if file == 'users':
-            for i in range(102):
-                for j in range(3):
-                    if j != 2:
-                        f.write(f'{file[i][j]};')
-                    else:
-                        f.write(f'{file[i][j]}')
-                f.write('\n')
-        elif file == 'candi':
-            for i in range(100):
-                for j in range(4):
-                    if j != 3:
-                        f.write(f'{file[i][j]};')
-                    else:
-                        f.write(f'{file[i][j]}')
-                f.write('\n')
-        else:
-            for i in range(3):
-                for j in range(3):
-                    if j != 2:
-                        f.write(f'{file[i][j]};')
-                    else:
-                        f.write(f'{file[i][j]}')
-                f.write('\n')
+    for x in range(3):
+        with open(f'save\\{folder}\\{fileName[x]}', 'w') as f:
+            if file[x] == 'users':
+                for i in range(102):
+                    for j in range(3):
+                        if j != 2:
+                            f.write(f'{file[i][j]};')
+                        else:
+                            f.write(f'{file[i][j]}')
+                    f.write('\n')
+            elif file[x] == 'candi':
+                for i in range(100):
+                    for j in range(4):
+                        if j != 3:
+                            f.write(f'{file[i][j]};')
+                        else:
+                            f.write(f'{file[i][j]}')
+                    f.write('\n')
+            else:
+                for i in range(3):
+                    for j in range(3):
+                        if j != 2:
+                            f.write(f'{file[i][j]};')
+                        else:
+                            f.write(f'{file[i][j]}')
+                    f.write('\n')
     print(f"Berhasil menyimpan data di folder save/{folder}!")
