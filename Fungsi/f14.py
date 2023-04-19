@@ -8,11 +8,33 @@ def save(file, fileName):
         print("Membuat folder save...")
         print(f"Membuat folder save/{folder}...")
         os.mkdir('save')
-    if folder not in os.listdir('save\\'):
+    elif folder not in os.listdir('save\\'):
         print(f"Membuat folder save/{folder}...")
         os.mkdir(f'save\\{folder}')
     
     with open(f'save\\{folder}\\{fileName}', 'w') as f:
-        for row in file:
-            f.write(';'.join(str(cell) for cell in row) + '\n')
+        if file == 'users':
+            for i in range(102):
+                for j in range(3):
+                    if j != 2:
+                        f.write(f'{file[i][j]};')
+                    else:
+                        f.write(f'{file[i][j]}')
+                f.write('\n')
+        elif file == 'candi':
+            for i in range(100):
+                for j in range(4):
+                    if j != 3:
+                        f.write(f'{file[i][j]};')
+                    else:
+                        f.write(f'{file[i][j]}')
+                f.write('\n')
+        else:
+            for i in range(3):
+                for j in range(3):
+                    if j != 2:
+                        f.write(f'{file[i][j]};')
+                    else:
+                        f.write(f'{file[i][j]}')
+                f.write('\n')
     print(f"Berhasil menyimpan data di folder save/{folder}!")
