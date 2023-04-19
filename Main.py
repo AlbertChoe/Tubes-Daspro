@@ -9,6 +9,7 @@ import Fungsi.f05 as f05
 import Fungsi.f07 as f07
 import Fungsi.f08 as f08
 import Fungsi.f09 as f09
+import Fungsi.f14 as f14
 import Fungsi.f15 as f15 
 import Fungsi.BonusRNG as RNG
 
@@ -109,7 +110,9 @@ def options(commands):
   
   elif commands=="save":
     if role=="bandung_bondowoso" or role=="roro_jonggrang":
-      return 0
+      f14.save(users, 'user.csv')
+      f14.save(candi, 'candi.csv')
+      f14.save(bahan_bangunan, 'bahan_bangunan.csv')
     
   elif commands=="help":
     if role==0:
