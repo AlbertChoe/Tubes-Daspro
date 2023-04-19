@@ -9,7 +9,7 @@ def exit(file, fileName):
             isValid = True
             sys.exit(1) # keluar program
         elif jawaban == 'y' or jawaban == 'Y':
-            isValid = True
             f14.save(file, fileName)
+            isValid = True
         else:
             isValid = False
