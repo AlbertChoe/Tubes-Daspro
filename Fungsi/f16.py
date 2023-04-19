@@ -1,7 +1,7 @@
 import Fungsi.f14 as f14
 import sys
 
-def exit():
+def exit(fileName, file):
     isValid = False
     while(isValid == False):
         jawaban = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) ")
@@ -10,6 +10,6 @@ def exit():
             sys.exit(1) # keluar program
         elif jawaban == 'y' or jawaban == 'Y':
             isValid = True
-            f14.save()
+            f14.save(fileName, file)
         else:
             isValid = False
