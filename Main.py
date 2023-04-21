@@ -16,9 +16,9 @@ import Fungsi.BonusRNG as RNG
 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
-users = [0 for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
-candi = [0 for i in range (100) ] # Matriks data candi. (maksimal 100 candi)
-bahan_bangunan = [0 for i in range (3)] # Matriks Data bahan bangunan. (ada pasir, batu sama air )
+users = [[0,0,0] for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
+candi = [[0,0,0,0,0] for i in range (100) ] # Matriks data candi. (maksimal 100 candi)
+bahan_bangunan = [[0,0,0] for i in range (3)] # Matriks Data bahan bangunan. (ada pasir, batu sama air )
 jinBangun=[0 for i in range (100)] #Isi jin yang bangun tiap candi kalo diremove ditaruh 0 semua , file cuma dibaca yang bukan 0 () Struktur matriks = [namajin,Totalcandiyangdibuat]
 jinKumpul = [0 for i in range(100)]
 role=0  #0=belum login
@@ -26,7 +26,7 @@ username=0   #0=belum login
 file = (users, candi, bahan_bangunan)
 fileName = ('user.csv', 'candi.csv', 'bahan_bangunan.csv')
 
-users,candi,bahan_bangunan = f13.load()
+users,candi,bahan_bangunan = f13.load(users,candi,bahan_bangunan)
 
 def options(commands):
   global users
