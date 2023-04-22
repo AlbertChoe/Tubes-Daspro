@@ -20,7 +20,6 @@ def laporanjin(user,bahan,candi):
                     if totjin[j]==0:
                         totjin[j]=[candi[i][1],1]
                         break
-    print(totjin)
     for i in range (100):
         if totjin[i]!=0:
             dibangun=True
@@ -77,5 +76,5 @@ def laporanjin(user,bahan,candi):
         print(f"> Jin Termalas: -")
     print(f"> Jumlah Pasir: {bahan[0][2]} unit")
     print(f"> Jumlah Air: {bahan[1][2]} unit")
-    print(f"> Jumlah Batu: {bahan[2][2]} unit")
-    return 
+    print(f"> Jumlah Batu: {bahan[2][2]} unit\n")
+    

@@ -7,12 +7,11 @@ import Fungsi.f05 as f05
 import Fungsi.f07 as f07
 import Fungsi.f08 as f08
 import Fungsi.f09 as f09
+import Fungsi.f10 as f10
 import Fungsi.f13 as f13
-# import Fungsi.f14 as f14
-# import Fungsi.f15 as f15 
-# import Fungsi.f16 as f16 
-# import Fungsi.BonusRNG as RNG
-
+import Fungsi.f14 as f14
+import Fungsi.f15 as f15 
+import Fungsi.f16 as f16 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
 users = [[0,0,0] for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
@@ -46,10 +45,6 @@ def options(commands):
   elif commands=="logout":
       role,username=f02.logout(role,username)
       return 
-  
-  elif commands=="exit":
-      if role==0:
-        f16.exit(file, fileName)
     
   elif commands=="summonjin":
     if role=="bandung_bondowoso" :
@@ -104,7 +99,8 @@ def options(commands):
   
   elif commands=="laporancandi":
     if role=="bandung_bondowoso":
-      return 0
+      f10.laporancandi(candi)
+      return 
   
   elif commands=="hancurkancandi":
     if role=="roro_jonggrang":
@@ -117,6 +113,8 @@ def options(commands):
   elif commands=="save":
     if role=="bandung_bondowoso" or role=="roro_jonggrang":
       f14.save(file, fileName)
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
     
   elif commands=="help":
     if role==0:
@@ -130,12 +128,18 @@ def options(commands):
     elif role=="jin_pengumpul":
       return f15.help("jin_pengumpul")
   
+  elif commands=="exit":
+      if role==0:
+        f16.exit(file, fileName)
+        
+  else:print("input tidak valid\n")
+  
 
 #Program yang di run
 while True:
   # print(users)
   # print(candi)
   # print(bahan_bangunan)
-  masukan = input(">>> ")
+  masukan = input(">>> ").lower()
   options(masukan)
   

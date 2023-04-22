@@ -11,5 +11,6 @@ def exit(file, fileName):
         elif jawaban == 'y' or jawaban == 'Y':
             f14.save(file, fileName)
             isValid = True
+            sys.exit(1) # keluar program
         else:
             isValid = False

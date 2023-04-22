@@ -28,13 +28,6 @@ def batchkumpul(users,bahan_bangunan):
 
 
 #Bagian Bangun
-# def validasiNama(username,jinBangun):
-#     for i in range(100):
-#         if jinBangun[i][0]==username :
-#             return True,i
-#     else:
-#         return False,-1
-
 def batchbangun (users,bahan_bangunan,candi):
     arrayRandom=[0 for i in range (100)]
     totalJin,totPasir,totBatu,totAir=0,0,0,0
@@ -52,7 +45,6 @@ def batchbangun (users,bahan_bangunan,candi):
     else:  #jika ada jin yang bisa bangun
         print(f"Mengerahkan {totalJin} jin untuk membangun candi dengan total bahan {totPasir} pasir, {totBatu} batu, dan {totAir} air")
         # mengecek jumlah bahan apakah cukup atau tidak
-        print(arrayRandom)
         if totPasir<int(bahan_bangunan[0][2]) and totBatu<int(bahan_bangunan[1][2]) and totAir<int(bahan_bangunan[1][2]): 
             print(f"Jin berhasil membangun total {totalJin} candi\n")
             for i in range(totalJin):
@@ -64,7 +56,6 @@ def batchbangun (users,bahan_bangunan,candi):
                 for j in range (100):
                     if candi[j]==[0,0,0,0,0]:
                         candi[j]=[j+1,arrayRandom[ArrayNumber][0],arrayRandom[ArrayNumber][1],arrayRandom[ArrayNumber][2],arrayRandom[ArrayNumber][3]]  
-                        print(candi)
                         break  
                 bahan_bangunan[0][2]=int(bahan_bangunan[0][2])-arrayRandom[ArrayNumber][1]            
                 bahan_bangunan[1][2]=int(bahan_bangunan[1][2])-arrayRandom[ArrayNumber][2]            
