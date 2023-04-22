@@ -13,7 +13,7 @@ def RNGKumpul(): #yang dipakai untuk generate 3 random number
     n = 3
     result = []
     for i in range(n):
-        time.sleep(0.05)
+        time.sleep(0.03)
         seed = LCG(seed, multiplier, increment, modulus, 1)
         random_num = seed % 6
         result.append(random_num)
@@ -27,7 +27,7 @@ def RNGBangun(): #yang dipakai untuk generate 3 random number
     n = 3
     result = []
     for i in range(n):
-        time.sleep(0.05)
+        time.sleep(0.03)
         seed = LCG(seed, multiplier, increment, modulus, 1)
         random_num = (seed %5)+1
         result.append(random_num)

@@ -1,5 +1,4 @@
 # File: main.py
-import Fungsi.CSV_Parser as parser
 import Fungsi.f01 as f01
 import Fungsi.f02 as f02
 import Fungsi.f03 as f03
@@ -7,26 +6,27 @@ import Fungsi.f04 as f04
 import Fungsi.f05 as f05
 import Fungsi.f07 as f07
 import Fungsi.f08 as f08
-import Fungsi.f09 as f09
+# import Fungsi.f09 as f09
 import Fungsi.f13 as f13
-import Fungsi.f14 as f14
-import Fungsi.f15 as f15 
-import Fungsi.f16 as f16 
-import Fungsi.BonusRNG as RNG
+# import Fungsi.f14 as f14
+# import Fungsi.f15 as f15 
+# import Fungsi.f16 as f16 
+# import Fungsi.BonusRNG as RNG
 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
 users = [[0,0,0] for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
 candi = [[0,0,0,0,0] for i in range (100) ] # Matriks data candi. (maksimal 100 candi)
 bahan_bangunan = [[0,0,0] for i in range (3)] # Matriks Data bahan bangunan. (ada pasir, batu sama air )
-jinBangun=[0 for i in range (100)] #Isi jin yang bangun tiap candi kalo diremove ditaruh 0 semua , file cuma dibaca yang bukan 0 () Struktur matriks = [namajin,Totalcandiyangdibuat]
-jinKumpul = [0 for i in range(100)]
 role=0  #0=belum login
 username=0   #0=belum login
 file = (users, candi, bahan_bangunan)
 fileName = ('user.csv', 'candi.csv', 'bahan_bangunan.csv')
-
 users,candi,bahan_bangunan = f13.load(users,candi,bahan_bangunan)
+if bahan_bangunan[0][0]==0:
+  bahan_bangunan[0]=["Pasir","Pasir dari palung mariana",0]
+  bahan_bangunan[1]=["Batu","Batu dari palung mariana",0]
+  bahan_bangunan[2]=["Air","Air dari palung mariana",0]
 
 def options(commands):
   global users
@@ -35,7 +35,6 @@ def options(commands):
   global role
   global username
   global jinBangun
-  global jinKumpul
 
   if commands=="login":
     if role==0 :
@@ -95,12 +94,12 @@ def options(commands):
   
   elif commands=="batchbangun":
     if role=="bandung_bondowoso":
-      jinBangun,bahan_bangunan,candi=f08.batchbangun(users,jinBangun,bahan_bangunan,candi)
-      return jinBangun,bahan_bangunan,candi
+      bahan_bangunan,candi=f08.batchbangun(users,bahan_bangunan,candi)
+      return bahan_bangunan,candi
   
   elif commands=="laporanjin":
     if role=="bandung_bondowoso":
-      jinBangun=f09.laporanjin(users,jinBangun,bahan_bangunan)
+      jinBangun=f09.laporanjin(users,bahan_bangunan)
       return jinBangun
   
   elif commands=="laporancandi":
@@ -134,8 +133,9 @@ def options(commands):
 
 #Program yang di run
 while True:
-  print(users)
-  print(role,username)
+  # print(users)
+  # print(candi)
+  # print(bahan_bangunan)
   masukan = input(">>> ")
   options(masukan)
   

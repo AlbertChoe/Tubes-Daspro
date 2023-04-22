@@ -1,8 +1,7 @@
-import Fungsi.CSV_Parser as parser
 def login(user,role):
     username=input("Username: ")
     password=input("Password: ")
-    for i in range (1,parser.length(user)):
+    for i in range (102):
         if user[i][0]==username:
             if password==user[i][1]:
                 print (f'\nSelamat datang, {username}!\nMasukkan command “help” untuk daftar command yang dapat kamu panggil.')
