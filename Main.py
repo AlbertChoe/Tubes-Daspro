@@ -6,7 +6,7 @@ import Fungsi.f04 as f04
 import Fungsi.f05 as f05
 import Fungsi.f07 as f07
 import Fungsi.f08 as f08
-# import Fungsi.f09 as f09
+import Fungsi.f09 as f09
 import Fungsi.f13 as f13
 # import Fungsi.f14 as f14
 # import Fungsi.f15 as f15 
@@ -60,7 +60,7 @@ def options(commands):
   
   elif commands=="hapusjin":
     if role=="bandung_bondowoso" :
-      users=f04.hapusjin(users)
+      users,candi=f04.hapusjin(users,candi)
       return
     else:
       print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
@@ -99,8 +99,8 @@ def options(commands):
   
   elif commands=="laporanjin":
     if role=="bandung_bondowoso":
-      jinBangun=f09.laporanjin(users,bahan_bangunan)
-      return jinBangun
+      f09.laporanjin(users,bahan_bangunan,candi)
+      return 
   
   elif commands=="laporancandi":
     if role=="bandung_bondowoso":

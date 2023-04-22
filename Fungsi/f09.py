@@ -1,9 +1,6 @@
-import Fungsi.CSV_Parser as parser
-
-def laporanjin(user,jinPembangun,bahan):
-    totJinkumpul=0
-    totJinBangun=0
-    for i in range(parser.length(user)):
+def laporanjin(user,bahan,candi):
+    totJinkumpul,totJinBangun=0,0
+    for i in range(102):
         if user[i][2]=="jin_pengumpul" :
             totJinkumpul+=1
         elif user[i][2]=="jin_pembangun":
@@ -11,68 +8,74 @@ def laporanjin(user,jinPembangun,bahan):
     print(f"> Total Jin: {totJinBangun+totJinkumpul}")
     print(f"> Total Jin Pengumpul: {totJinkumpul}")
     print(f"> Total Jin Pembangun: {totJinBangun}")
-    print(jinPembangun)
-    if parser.length(jinPembangun)!=0:
-        #sorting algorithm untuk mencari yang terajin dan termales (menggunakan counting sort)
-        # Tentukan nilai minimum dan maksimum pada kolom kedua
-        minimum = jinPembangun[0][1]
-        maksimum = jinPembangun[0][1]
-        for i in range(parser.length(jinPembangun)):
-            if jinPembangun[i][1] < minimum:
-                minimum = jinPembangun[i][1]
-            elif jinPembangun[i][1] > maksimum:
-                maksimum = jinPembangun[i][1]
-        
-        # Hitung jumlah kemunculan setiap nilai pada kolom kedua
-        counting = [0] * (maksimum - minimum + 1)
-        for i in range(parser.length(jinPembangun)):
-            counting[jinPembangun[i][1] - minimum] += 1
-        
-        # Hitung prefix sum pada array counting
-        for i in range(1, parser.length(counting)):
-            counting[i] += counting[i-1]
-        
-        # Buat array hasil
-        hasil = [0] * parser.length(jinPembangun)
-        
-        # Lakukan counting sort pada kolom kedua
-        for i in range(parser.length(jinPembangun)-1, -1, -1):
-            hasil[counting[jinPembangun[i][1] - minimum] - 1] = jinPembangun[i]
-            counting[jinPembangun[i][1] - minimum] -= 1
-        jinPembangun=hasil
-        #untuk mengecek apabila ada jin yang membangun candi dengan jumlah yang sama
-        #untuk jin termales
-        if hasil[0][1]==hasil[1][1]:
-            i=1
-            termales=[hasil[0],hasil[1]]
-            while i<(parser.length(hasil)-1) and hasil[i][1]==hasil[i+1][1] :
-                i+=1
-                termales=parser.append(termales,hasil[i])
-            # Lakukan iterasi untuk setiap elemen matriks
-            maksimum=termales[0][0]
-            for x in range(parser.length(termales)):
-                if termales[x][0]>maksimum:
-                    maksimum=termales[x][0]   
-            print(f"termales adalah {maksimum}")
-        else:
-            print(f"> Jin Termalas: {hasil[0][0]}")
+    totjin=[0 for i in range (100)]
+    for i in range(100):
+        if candi[i]!=[0,0,0,0,0]:
+            for j in range (100):
+                if totjin[j]!=0 and totjin[j][0]==candi[i][1]:
+                    totjin[j][1]+=1
+                    break
+            else: 
+                for j in range(100):
+                    if totjin[j]==0:
+                        totjin[j]=[candi[i][1],1]
+                        break
+    print(totjin)
+    for i in range (100):
+        if totjin[i]!=0:
+            dibangun=True
+            break
+    else:dibangun=False
+    if dibangun :
+        max=totjin[0][1]
+        min=totjin[0][1]
+        jumlahmax=0
+        jumlahmin=0
+        for i in range(100):
+            if totjin[i]!=0 :
+                if max>totjin[i][1]:
+                    max=totjin[i][1]
+                    jumlahmax=0
+                if min<totjin[i][1]:
+                    min=totjin[i][1]
+                    jumlahmin=0
+                if min==totjin[i][1]:
+                    jumlahmin+=1
+                if max==totjin[i][1]:
+                    jumlahmax+=1
 
-        #untuk jin terajin
-        if hasil[parser.length(hasil)-1][1]==hasil[parser.length(hasil)-2][1]:
-            i=parser.length(hasil)-2
-            terajin=[hasil[i],hasil[i-1]]
-            while i>0 and  hasil[i][1]==hasil[i-1][1]:
-                i-=1
-                terajin=parser.append(terajin,hasil[i])
-            minimum=terajin[0][0]
-            for x in range(parser.length(terajin)):
-                if terajin[x][0]<minimum:
-                    minimum=terajin[x][0]  
-            print(f"terajin adalah {minimum}")
-        else:print(f"> Jin terajin: {hasil[parser.length(hasil)-1][0]}")
+        if jumlahmax==0:
+            for i in range (100):
+                if totjin[i][1]==max:
+                    terendah=totjin[i][0] 
+                    break
+        else:
+            for i in range (100):
+                if totjin[i]!=0 and  max==totjin[i][1] :
+                    terendah=totjin[i][0]
+                    break
+            for i in range (100):
+                if totjin[i]!=0 and  max==totjin[i][1] and totjin[i][0]<terendah:
+                    terendah=totjin[i][0]   
+        if jumlahmin==0:
+            for i in range (100):
+                if totjin[i][1]==min:
+                    tertinggi=totjin[i][0] 
+                    break
+        else:
+            for i in range (100):
+                if totjin[i]!=0 and  min==totjin[i][1] :
+                    tertinggi=totjin[i][0]
+                    break
+            for i in range (100):
+                if totjin[i]!=0 and  min==totjin[i][1] and totjin[i][0]>tertinggi:
+                    tertinggi=totjin[i][0]      
+        print(f"> Jin Terajin: {terendah}")
+        print(f"> Jin Termalas: {tertinggi}")
     else:
-        print("> Jin Terajin: -\n> Jin Termalas: -")
-    print(f"> Jumlah Pasir: {bahan[1][2]} unit")
-    print(f"> Jumlah Air: {bahan[3][2]} unit")
+        print(f"> Jin Terajin: -")
+        print(f"> Jin Termalas: -")
+    print(f"> Jumlah Pasir: {bahan[0][2]} unit")
+    print(f"> Jumlah Air: {bahan[1][2]} unit")
     print(f"> Jumlah Batu: {bahan[2][2]} unit")
-    return jinPembangun
+    return 
