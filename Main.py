@@ -4,6 +4,7 @@ import Fungsi.f02 as f02
 import Fungsi.f03 as f03
 import Fungsi.f04 as f04
 import Fungsi.f05 as f05
+import Fungsi.f06 as f06
 import Fungsi.f07 as f07
 import Fungsi.f08 as f08
 import Fungsi.f09 as f09
@@ -69,6 +70,7 @@ def options(commands):
   
   elif commands=="bangun":
     if role=="jin_pembangun":
+      candi,bahan_bangunan=f06.bangun(candi,bahan_bangunan,username)
       return 
     else:
       print("\nHanya jin pembangun yang dapat membangun candi.\n")

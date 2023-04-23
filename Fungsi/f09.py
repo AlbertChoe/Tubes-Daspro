@@ -32,10 +32,10 @@ def laporanjin(user,bahan,candi):
         jumlahmin=0
         for i in range(100):
             if totjin[i]!=0 :
-                if max>totjin[i][1]:
+                if max<totjin[i][1]:
                     max=totjin[i][1]
                     jumlahmax=0
-                if min<totjin[i][1]:
+                if min>totjin[i][1]:
                     min=totjin[i][1]
                     jumlahmin=0
                 if min==totjin[i][1]:

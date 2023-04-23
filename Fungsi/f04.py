@@ -17,14 +17,12 @@ def hapusjin(users,candi):
                 if candi[i][1]==namaJin:
                     candi[i]=[0,0,0,0,0]
                     times+=1
-            print(candi)
             for x in range (times):
                 for i in range (99):
                     for j in range (99-i):
                         if candi[i+1]!=[0,0,0,0,0] and candi[i]==[0,0,0,0,0]:
                             candi[i+1][0]=int(candi[i+1][0])-1
                             candi[i],candi[i+1]=candi[i+1],candi[i]
-            print(candi)
             return users,candi
         elif jawaban=="N" or jawaban=="n":
             print(f"Proses menghapus jin bernama {namaJin} dicancel oleh pengguna\n")
