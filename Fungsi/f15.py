@@ -51,4 +51,4 @@ def help(role):
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
         print("2. kumpul")
-        print("   Untuk mengumpulkan resource candi")
+        print("   Untuk mengumpulkan resource candi\n")
