@@ -13,7 +13,7 @@ def help(role):
         print("   Untuk keluar dari akun yang digunakan sekarang")
         print("2. summonjin")
         print("   Untuk memanggil jin")
-        print("3. haousjin")
+        print("3. hapusjin")
         print("   Untuk menghapus jin")
         print("4. ubahjin")
         print("   Untuk mengubah tipe jin")
