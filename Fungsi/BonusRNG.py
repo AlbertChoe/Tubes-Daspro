@@ -11,12 +11,12 @@ def RNGKumpul(): #yang dipakai untuk generate 3 random number
     increment = 12345
     modulus = 2**31
     n = 3
-    result = []
+    result = [None for i in range (3)]
     for i in range(n):
         time.sleep(0.03)
         seed = LCG(seed, multiplier, increment, modulus, 1)
         random_num = seed % 6
-        result.append(random_num)
+        result[i]=random_num
     return result[0],result[1],result[2]
 
 def RNGBangun(): #yang dipakai untuk generate 3 random number 
@@ -25,10 +25,10 @@ def RNGBangun(): #yang dipakai untuk generate 3 random number
     increment = 12345
     modulus = 2**31
     n = 3
-    result = []
+    result = [None for i in range (3)]
     for i in range(n):
         time.sleep(0.03)
         seed = LCG(seed, multiplier, increment, modulus, 1)
         random_num = (seed %5)+1
-        result.append(random_num)
+        result[i]=random_num
     return result[0],result[1],result[2]
