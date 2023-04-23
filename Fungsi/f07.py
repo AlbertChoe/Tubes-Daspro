@@ -1,7 +1,7 @@
 import Fungsi.BonusRNG as RNG
 def kumpul(bahan_bangunan):
     pasir,batu,air = RNG.RNGKumpul()
-    print("Jin found:", pasir, "sand,", batu, "stone,", air, "water")
+    print("Jin found:", pasir, "pasir,", batu, "batu,", air, "air")
     for i in range(3):
         if bahan_bangunan[i][0] == "Pasir":
             bahan_bangunan[i][2] =int(bahan_bangunan[i][2])+ pasir

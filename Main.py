@@ -136,12 +136,6 @@ def options(commands):
       if role==0:
         f16.exit(file, fileName)
     
-  elif commands=="users":
-    print(users)
-
-  elif commands=="candi":
-    print(candi)
-
   else:print("input tidak valid\n")
   
 

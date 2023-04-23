@@ -26,9 +26,9 @@ def laporancandi (candi):
                 indeksmin=harga_total[i][0]
                 min=harga_total[i][1]
         print(f"> Total Candi: {totCandi}")
-        print(f"> Total Pasir yang digunakan: {totPasir}")
-        print(f"> Total Batu yang digunakan: {totBatu}")
+        print(f"> Total Pasir yang digunakan: {totPasir} ")
+        print(f"> Total Batu yang digunakan: {totBatu} (Rp {max})")
         print(f"> Total Air yang digunakan: {totAir}")
-        print(f"ID Candi termahal: {indeksmax}")
-        print(f"ID Candi termurah: {indeksmin}\n")
+        print(f"ID Candi termahal: {indeksmax} (Rp {max})")
+        print(f"ID Candi termurah: {indeksmin} (Rp {min})\n")
     
