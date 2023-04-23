@@ -131,8 +131,8 @@ def options(commands):
       return f15.help("jin_pengumpul")
   
   elif commands=="exit":
-      if role==0:
-        f16.exit(file, fileName)
+    if role==0:
+      f16.exit(file, fileName)
         
   else:print("input tidak valid\n")
   
