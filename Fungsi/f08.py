@@ -64,7 +64,22 @@ def batchbangun (users,bahan_bangunan,candi):
             return bahan_bangunan,candi
         #jika bahan tidak cukup
         else:
-            print(f"Bangun gagal. Kurang {totPasir-int(bahan_bangunan[0][2])} pasir, {totBatu-int(bahan_bangunan[1][2])} batu, {totAir-int(bahan_bangunan[2][2])}")
+            kurangpasir=totPasir-int(bahan_bangunan[0][2])
+            kurangbatu=totBatu-int(bahan_bangunan[1][2])
+            kurangair=totAir-int(bahan_bangunan[2][2])
+            if kurangpasir<0 :
+                kurangpasir=0
+            # elif kurangpasir>=0:
+            #     kurangpasir=kurangpasir*(-1)
+            if kurangbatu<0 :
+                kurangbatu=0
+            # elif kurangbatu>=0:
+            #     kurangbatu=kurangbatu*(-1)
+            if kurangair<0 :
+                kurangair=0
+            # elif kurangair>=0:
+            #     kurangair=kurangair*(-1)
+            print(f"Bangun gagal. Kurang {kurangpasir} pasir, {kurangbatu} batu, {kurangair} air.\n")
             return bahan_bangunan,candi
 
             

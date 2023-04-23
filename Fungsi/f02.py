@@ -4,6 +4,5 @@ def logout(role,username):
         return role,username
     else:
         print("Keluar dari Akun...\nLogout Berhasil")
-        role=0
-        username=0
+        role,username=0,0
         return role,username
