@@ -46,7 +46,10 @@ def options(commands):
       print("\nSilahkan logout dari account sekarang agar bisa login kembali.\n")
     
   elif commands=="logout":
+    if role!=0:
       role,username=f02.logout(role,username)
+    else:
+      print("\nAnda belum login\n")
       return 
     
   elif commands=="summonjin":
@@ -94,25 +97,37 @@ def options(commands):
   elif commands=="batchbangun":
     if role=="bandung_bondowoso":
       bahan_bangunan,candi=f08.batchbangun(users,bahan_bangunan,candi)
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
       return bahan_bangunan,candi
   
   elif commands=="laporanjin":
     if role=="bandung_bondowoso":
       f09.laporanjin(users,bahan_bangunan,candi)
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
       return 
   
   elif commands=="laporancandi":
     if role=="bandung_bondowoso":
       f10.laporancandi(candi)
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
       return 
   
   elif commands=="hancurkancandi":
     if role=="roro_jonggrang":
-      f11.hancurkancandi(candi)
+      candi=f11.hancurkancandi(candi)
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
+      return
   
   elif commands=="ayamberkokok":
     if role=="roro_jonggrang":
       f12.ayamberkokok(candi)
+    else:
+      print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
+      return
   
   elif commands=="save":
     if role=="bandung_bondowoso" or role=="roro_jonggrang":
@@ -133,17 +148,23 @@ def options(commands):
       return f15.help("jin_pengumpul")
   
   elif commands=="exit":
-      if role==0:
-        f16.exit(file, fileName)
+    if role==0:
+      f16.exit(file, fileName)
+  
+  elif commands=="user":
+    print(users)
+
+  elif commands=="candi":
+    print(candi)
+
+  elif commands=="bahan":
+    print(bahan_bangunan)
     
   else:print("input tidak valid\n")
   
 
 #Program yang di run
 while True:
-  # print(users)
-  # print(candi)
-  # print(bahan_bangunan)
   masukan = input(">>> ").lower()
   options(masukan)
   
