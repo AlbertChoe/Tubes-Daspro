@@ -29,6 +29,8 @@ def load(users,candi,bahan_bangunan):
     parse.add_argument("path")
     if len(sys.argv)==1:
         print("Tidak ada nama folder yang diberikan!")
+        italic_text = "\x1B[3m" + "python main.py" + "\x1B[0m"
+        print(f"\nUsage: {italic_text} <nama_folder>")
         sys.exit(1)
 
     args=parse.parse_args()
