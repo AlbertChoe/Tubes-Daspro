@@ -9,6 +9,8 @@ import Fungsi.f07 as f07
 import Fungsi.f08 as f08
 import Fungsi.f09 as f09
 import Fungsi.f10 as f10
+import Fungsi.f11 as f11
+import Fungsi.f12 as f12
 import Fungsi.f13 as f13
 import Fungsi.f14 as f14
 import Fungsi.f15 as f15 
@@ -106,11 +108,11 @@ def options(commands):
   
   elif commands=="hancurkancandi":
     if role=="roro_jonggrang":
-      return 0
+      f11.hancurkancandi(candi)
   
   elif commands=="ayamberkokok":
     if role=="roro_jonggrang":
-      return 0
+      f12.ayamberkokok(candi)
   
   elif commands=="save":
     if role=="bandung_bondowoso" or role=="roro_jonggrang":
@@ -133,7 +135,13 @@ def options(commands):
   elif commands=="exit":
       if role==0:
         f16.exit(file, fileName)
-        
+    
+  elif commands=="users":
+    print(users)
+
+  elif commands=="candi":
+    print(candi)
+
   else:print("input tidak valid\n")
   
 
