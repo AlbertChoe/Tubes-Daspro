@@ -1,4 +1,4 @@
-def ubah (users):
+def ubah (users : list) -> list:
     username= input("Masukkan username jin : ")
     counter = 0
     for i in range (102) :

@@ -1,11 +1,9 @@
-def help(role):
-    if role==0:
+def help(role:str)->None:
+    if role=="0":
         print("====================== HELP ======================")
         print("1. login")
         print("   Untuk masuk menggunakan akun")
-        print("2. load")
-        print("   Untuk memuat file eksternal ke dalam permainan")
-        print("3. exit")
+        print("2. exit")
         print("   Untuk keluar dari permainan")
     elif role=="bandung_bondowoso":
         print("===================== HELP ======================")

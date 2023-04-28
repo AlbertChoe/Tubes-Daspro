@@ -1,11 +1,11 @@
-def validasiNama(namaJin,user):
+def validasiNama(namaJin : str, user :list ) -> tuple:
     for i in range(102):
         if user[i]!=[0,0,0] and i!=0 and i!=1 and user[i][0]==namaJin  :
             return True,i
     else:
         return False,-1
     
-def hapusjin(users,candi):
+def hapusjin(users : list, candi : list) -> tuple:
     namaJin=input("Masukkan username jin : ")
     valid,index=validasiNama(namaJin,users)
     times=0
@@ -23,7 +23,7 @@ def hapusjin(users,candi):
                         if candi[i+1]!=[0,0,0,0,0] and candi[i]==[0,0,0,0,0]:
                             candi[i+1][0]=int(candi[i+1][0])-1
                             candi[i],candi[i+1]=candi[i+1],candi[i]
-            print(f"in telah berhasil dihapus dari alam gaib.\n")
+            print(f"Jin telah berhasil dihapus dari alam gaib.\n")
             return users,candi
         elif jawaban=="N" or jawaban=="n":
             print(f"Proses menghapus jin bernama {namaJin} dicancel oleh pengguna\n")

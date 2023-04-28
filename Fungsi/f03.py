@@ -1,11 +1,11 @@
-def validasiPassword(password):
+def validasiPassword(password : str) ->bool:
     if len(password)>=5 and len(password)<=25:
         return True
     else:
         print("Password panjangnya harus 5-25 karakter!")
         return False
     
-def validasiNama(namaJin,user_csv):
+def validasiNama(namaJin : str,user_csv : list) -> tuple:
     for i in range(102):
         if user_csv[i]==[0,0,0]:
             continue
@@ -15,7 +15,7 @@ def validasiNama(namaJin,user_csv):
     else:
         return True
     
-def hitungList(user_csv:list[str]):
+def hitungList(user_csv : list) -> int:
     count=0
     for i in range (102):
         if user_csv[i] != [0,0,0]   :
@@ -23,7 +23,7 @@ def hitungList(user_csv:list[str]):
     return count
 
 
-def summonjin(user_csv:list[str]):
+def summonjin(user_csv : list) -> list:
     if hitungList(user_csv) >102 :
         print("Jumlah Jin telah maksimal! (100 jin). Bandung tidak dapat men-summon lebih dari itu")
         return user_csv

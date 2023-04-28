@@ -2,7 +2,7 @@ import argparse
 import sys
 import os
 
-def parser(csv,list,token):
+def parser(csv :str ,list : list,token :str) ->list:
     file = open(csv,"r")
     i = -1
     for line in file:
@@ -24,7 +24,7 @@ def parser(csv,list,token):
             i += 1
     return list
  
-def load(users,candi,bahan_bangunan):
+def load(users : list,candi : list,bahan_bangunan : list) -> tuple :
     parse = argparse.ArgumentParser(usage="python main.py <nama_folder>") 
     parse.add_argument("path")
     if len(sys.argv)==1:

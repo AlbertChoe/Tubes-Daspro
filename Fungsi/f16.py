@@ -1,7 +1,7 @@
 import Fungsi.f14 as f14
 import sys
 
-def exit(file, fileName):
+def exit(file :tuple, fileName:tuple)->None:
     isValid = False
     while(isValid == False):
         jawaban = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) ")

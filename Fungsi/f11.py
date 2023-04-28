@@ -1,4 +1,4 @@
-def hancurkancandi(candi):
+def hancurkancandi(candi : list)-> list:
     id_candi = int(input("Masukkan ID candi: "))
     for i in range(100):
         if candi[i]!=[0,0,0,0,0] and  candi[i][0] == id_candi:

@@ -1,6 +1,6 @@
 import os
 
-def save(file, fileName):
+def save(file :tuple , fileName:tuple) ->None:
     folder = input("Masukkan nama folder: ")
     print("Saving...")
     

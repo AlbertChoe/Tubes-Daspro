@@ -1,5 +1,5 @@
 import Fungsi.BonusRNG as RNG
-def kumpul(bahan_bangunan):
+def kumpul(bahan_bangunan :list) -> list:
     pasir,batu,air = RNG.RNGKumpul()
     print("Jin found:", pasir, "pasir,", batu, "batu,", air, "air")
     for i in range(3):
@@ -9,4 +9,4 @@ def kumpul(bahan_bangunan):
             bahan_bangunan[i][2] = int(bahan_bangunan[i][2]) +batu
         elif bahan_bangunan[i][0] == "Air":
             bahan_bangunan[i][2] = int(bahan_bangunan[i][2]) +air
-    return bahan_bangunan,pasir,batu,air
+    return bahan_bangunan

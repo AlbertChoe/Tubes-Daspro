@@ -5,7 +5,7 @@ def LCG(seed:int,multiplier:int,increment:int,modulus:int,n:int)->int:
 
 import time
 
-def RNGKumpul(): #yang dipakai untuk generate 3 random number 
+def RNGKumpul() ->tuple: #yang dipakai untuk generate 3 random number 
     seed = int(time.time()*1000)
     multiplier = 1103515245
     increment = 12345
@@ -19,7 +19,7 @@ def RNGKumpul(): #yang dipakai untuk generate 3 random number
         result[i]=random_num
     return result[0],result[1],result[2]
 
-def RNGBangun(): #yang dipakai untuk generate 3 random number 
+def RNGBangun() ->tuple: #yang dipakai untuk generate 3 random number 
     seed = int(time.time()*1000)
     multiplier = 1103515245
     increment = 12345

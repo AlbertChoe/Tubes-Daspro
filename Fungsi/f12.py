@@ -1,5 +1,5 @@
 import sys
-def ayamberkokok(candi):
+def ayamberkokok(candi : list) -> None  :
     print("Kukuruyuk.. Kukuruyuk..\n")
     totCandi = 0
     for i in range (100):

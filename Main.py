@@ -20,8 +20,8 @@ import Fungsi.f16 as f16
 users = [[0,0,0] for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
 candi = [[0,0,0,0,0] for i in range (100) ] # Matriks data candi. (maksimal 100 candi)
 bahan_bangunan = [[0,0,0] for i in range (3)] # Matriks Data bahan bangunan. (ada pasir, batu sama air )
-role=0  #0=belum login
-username=0   #0=belum login
+role="0"  #0=belum login
+username="0"   #0=belum login
 file = (users, candi, bahan_bangunan)
 fileName = ('user.csv', 'candi.csv', 'bahan_bangunan.csv')
 users,candi,bahan_bangunan = f13.load(users,candi,bahan_bangunan)
@@ -30,28 +30,26 @@ if bahan_bangunan[0][0]==0:
   bahan_bangunan[1]=["Batu","Batu dari palung mariana",0]
   bahan_bangunan[2]=["Air","Air dari palung mariana",0]
 
-def options(commands):
+def options(commands:str)->None:
   global users
   global candi
   global bahan_bangunan
   global role
   global username
-  global jinBangun
 
   if commands=="login":
-    if role==0 :
+    if role=="0" :
       role,username= f01.login(users, role)
       return 
     else:
       print("\nSilahkan logout dari account sekarang agar bisa login kembali.\n")
     
   elif commands=="logout":
-    if role!=0:
+    if role!="0":
       role,username=f02.logout(role,username)
     else:
       print("\nAnda belum login\n")
       return 
-    
   elif commands=="summonjin":
     if role=="bandung_bondowoso" :
       users=f03.summonjin(users)
@@ -82,15 +80,15 @@ def options(commands):
   
   elif commands=="kumpul":
     if role=="jin_pengumpul":
-      bahan_bangunan,pasir,batu,air=f07.kumpul(bahan_bangunan)
-      return bahan_bangunan
+      bahan_bangunan=f07.kumpul(bahan_bangunan)
+      return 
     else:
       print("\nHanya jin pengumpul yang dapat mengumpulkan bahan.\n")
   
   elif commands=="batchkumpul":
     if role=="bandung_bondowoso":
       bahan_bangunan=f08.batchkumpul(users,bahan_bangunan)
-      return bahan_bangunan
+      return 
     else:
       print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
   
@@ -99,7 +97,7 @@ def options(commands):
       bahan_bangunan,candi=f08.batchbangun(users,bahan_bangunan,candi)
     else:
       print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
-      return bahan_bangunan,candi
+      return 
   
   elif commands=="laporanjin":
     if role=="bandung_bondowoso":
@@ -136,19 +134,24 @@ def options(commands):
       print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
     
   elif commands=="help":
-    if role==0:
-      return f15.help(0)
+    if role=="0":
+      f15.help("0")
+      return 
     elif role=="bandung_bondowoso":
-      return f15.help("bandung_bondowoso")
+      f15.help("bandung_bondowoso")
+      return 
     elif role=="roro_jonggrang":
-      return f15.help("roro_jonggrang")
+      f15.help("roro_jonggrang")
+      return 
     elif role=="jin_pembangun":
-      return f15.help("jin_pembangun")
+      f15.help("jin_pembangun")
+      return 
     elif role=="jin_pengumpul":
-      return f15.help("jin_pengumpul")
+      f15.help("jin_pengumpul")
+      return 
   
   elif commands=="exit":
-    if role==0:
+    if role=="0":
       f16.exit(file, fileName)
   
   elif commands=="user":

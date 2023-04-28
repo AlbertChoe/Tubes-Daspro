@@ -1,4 +1,4 @@
-def login(user,role):
+def login(user : list,role : list) -> tuple:
     username=input("Username: ")
     password=input("Password: ")
     for i in range (102):
@@ -9,7 +9,7 @@ def login(user,role):
                 return role,username
             else:
                 print("\nPassword Salah")
-                return 0,0
+                return "0","0"
     else:
         print("\nUsername tidak terdaftar")
-        return 0,0
+        return "0","0"

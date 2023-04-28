@@ -1,5 +1,5 @@
 import Fungsi.BonusRNG as RNG
-def bangun(candi,bahan,username):
+def bangun(candi : list, bahan : list, username : str) ->tuple:
     pasir,batu,air=RNG.RNGBangun()
     if bahan[0][2] < pasir or bahan[1][2] < batu or bahan[2][2] < air:
         print("Bahan bangunan tidak mencukupi.")
