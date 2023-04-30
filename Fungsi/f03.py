@@ -29,8 +29,8 @@ def summonjin(user_csv : list) -> list:
         return user_csv
     else: #jika tidak melebihi 102
         print("Jenis jin yang dapat dipanggil :\n(1) Pengumpul - Bertugas mengumpulkan bahan bangunan\n(2) Pembangun - Bertugas membangun candi")
-        jenisJin=int(input("Masukkan nomor jenis jin yang ingin dipanggil : ")) #input
-        if jenisJin==1:  #jika user memilih 1
+        jenisJin=input("Masukkan nomor jenis jin yang ingin dipanggil : ") #input
+        if jenisJin=="1":  #jika user memilih 1
             print("\nMemilih jin “Pengumpul”.")
             namaJin=input("Masukkan username jin : ") #input
             while validasiNama(namaJin,user_csv)==False : #memvalidasi nama 
@@ -44,7 +44,7 @@ def summonjin(user_csv : list) -> list:
                     if user_csv[i]==["0","0","0"]: 
                         user_csv[i]=[namaJin,password,"jin_pengumpul"]
                         return user_csv
-        elif jenisJin==2: #jika user memilih 2
+        elif jenisJin=="2": #jika user memilih 2
             print("\nMemilih jin “Pembangun”.")
             namaJin=input("Masukkan username jin : ") #input
             while validasiNama(namaJin,user_csv)==False : #memvalidasi nama
