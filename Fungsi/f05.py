@@ -23,7 +23,7 @@ def ubah (users : list) -> list:
                     print("Jin telah berhasil diubah.")
                     return users
                 elif (persetujuan =="N")or persetujuan=="n":
-                    print ( "Jin tidak jadi diubah")
+                    print ( "Jin tidak jadi diubah.")
                     return users
                 else :
                     print("input invalid (Y/N)")
