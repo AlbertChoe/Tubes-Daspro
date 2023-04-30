@@ -12,8 +12,7 @@ def validasiNama(namaJin : str,user_csv : list) -> bool: #Fungsi untuk mengecek 
         elif user_csv[i][0]==namaJin : #jika username sudah ada maka return False
             print(f"Username {namaJin} sudah diambil!")
             return False
-    else: #jika tidak ada di dalam user maka return True
-        return True
+    return True
     
 def hitungList(user_csv : list) -> int: #fungsi untuk menghitung array user sudah terisi berapa
     count=0 #inisialisasi
