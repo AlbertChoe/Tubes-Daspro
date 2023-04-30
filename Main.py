@@ -134,21 +134,8 @@ def options(commands:str)->None:
       print("\nMaaf kamu tidak memiliki kekuasaan untuk memanggil fungsi ini\n")
     
   elif commands=="help":
-    if role=="0":
-      f15.help("0")
-      return 
-    elif role=="bandung_bondowoso":
-      f15.help("bandung_bondowoso")
-      return 
-    elif role=="roro_jonggrang":
-      f15.help("roro_jonggrang")
-      return 
-    elif role=="jin_pembangun":
-      f15.help("jin_pembangun")
-      return 
-    elif role=="jin_pengumpul":
-      f15.help("jin_pengumpul")
-      return 
+    f15.help(role)
+    return 
   
   elif commands=="exit":
     if role=="0":
