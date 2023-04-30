@@ -140,6 +140,8 @@ def options(commands:str)->None:
   elif commands=="exit":
     if role=="0":
       f16.exit(file, fileName)
+    else:
+      print("\nSilahkan logout terlebih dulu\n")
   
   elif commands=="user":
     print(users)
