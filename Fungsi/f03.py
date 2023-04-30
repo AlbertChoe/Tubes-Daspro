@@ -38,27 +38,24 @@ def summonjin(user_csv : list) -> list:
             password=input("Masukkan password jin : ") #input
             while validasiPassword(password)==False: #memvalidasi password
                 password=input("Masukkan password jin : ")
-            else: #jika password sudah benar
-                print("\nMengumpulkan sesajen...\nMenyerahkan sesajen...\nMembacakan mantra...\n")
-                for i in range(102): #for loop untuk mengupdate array user
-                    if user_csv[i]==["0","0","0"]: 
-                        user_csv[i]=[namaJin,password,"jin_pengumpul"]
-                        return user_csv
+            print("\nMengumpulkan sesajen...\nMenyerahkan sesajen...\nMembacakan mantra...\n")
+            for i in range(102): #for loop untuk mengupdate array user
+                if user_csv[i]==["0","0","0"]: 
+                    user_csv[i]=[namaJin,password,"jin_pengumpul"]
+                    return user_csv
         elif jenisJin=="2": #jika user memilih 2
             print("\nMemilih jin “Pembangun”.")
             namaJin=input("Masukkan username jin : ") #input
             while validasiNama(namaJin,user_csv)==False : #memvalidasi nama
                 namaJin=input("Masukkan username jin : ")     
-            else:
-                password=input("Masukkan password jin : ") #input
-                while validasiPassword(password)==False: #memvalidasi password
-                    password=input("Masukkan password jin : ")
-                else:
-                    print("\nMengumpulkan sesajen...\nMenyerahkan sesajen...\nMembacakan mantra...\n")
-                    for i in range(102): #for loop untuk mengupdate array user
-                        if user_csv[i]==["0","0","0"]:
-                            user_csv[i]=[namaJin,password,"jin_pembangun"]
-                            return user_csv
+            password=input("Masukkan password jin : ") #input
+            while validasiPassword(password)==False: #memvalidasi password
+                password=input("Masukkan password jin : ")
+            print("\nMengumpulkan sesajen...\nMenyerahkan sesajen...\nMembacakan mantra...\n")
+            for i in range(102): #for loop untuk mengupdate array user
+                if user_csv[i]==["0","0","0"]: 
+                    user_csv[i]=[namaJin,password,"jin_pembangun"]
+                    return user_csv
         else: #jika tidak menerima input antara 1 atau 2
             print(f"\nTidak ada jenis jin bernomor \"{jenisJin}\"!\n")
             return user_csv
