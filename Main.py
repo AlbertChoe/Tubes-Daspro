@@ -17,18 +17,18 @@ import Fungsi.f15 as f15
 import Fungsi.f16 as f16 
 
 # Anggap semua fungsi yang dipanggil merupakan fungsi yang sudah dibuat sendiri pada modul lain
-users = [[0,0,0] for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
-candi = [[0,0,0,0,0] for i in range (100) ] # Matriks data candi. (maksimal 100 candi)
-bahan_bangunan = [[0,0,0] for i in range (3)] # Matriks Data bahan bangunan. (ada pasir, batu sama air )
+users = [["0","0","0"] for i in range (102)] # Matriks data user awal persen semua (100 jin + bandung + roro)
+candi = [["0","0","0","0","0"] for i in range (100) ] # Matriks data candi. (maksimal 100 candi)
+bahan_bangunan = [["0","0","0"] for i in range (3)] # Matriks Data bahan bangunan. (ada pasir, batu sama air )
 role="0"  #0=belum login
 username="0"   #0=belum login
 file = (users, candi, bahan_bangunan)
 fileName = ('user.csv', 'candi.csv', 'bahan_bangunan.csv')
 users,candi,bahan_bangunan = f13.load(users,candi,bahan_bangunan)
-if bahan_bangunan[0][0]==0:
-  bahan_bangunan[0]=["Pasir","Pasir dari palung mariana",0]
-  bahan_bangunan[1]=["Batu","Batu dari palung mariana",0]
-  bahan_bangunan[2]=["Air","Air dari palung mariana",0]
+if bahan_bangunan[0][0]=="0":
+  bahan_bangunan[0]=["Pasir","Pasir dari palung mariana","0"]
+  bahan_bangunan[1]=["Batu","Batu dari palung mariana","0"]
+  bahan_bangunan[2]=["Air","Air dari palung mariana","0"]
 
 def options(commands:str)->None:
   global users

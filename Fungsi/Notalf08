@@ -1,0 +1,16 @@
+Program batchbangun
+Fungsi batchkumpul (input users, input/output bahan_bangunan )
+{ I.S users terdefinisi ;  F.S Menambahkan jumlah bahan bangunan yang dikumpulkan oleh seluruh jin pengumpul ke dalam array bahan_bangunan }
+
+KAMUS LOKAL
+totalBahan :
+totalJin :
+valid :
+pasir, batu, air : integer
+
+ALGORITMA
+totalBahan <- [0,0,0]
+totalJin <- 0
+valid <- False
+i traversal [1.. 102]:
+    if users[i]

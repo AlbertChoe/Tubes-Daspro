@@ -2,7 +2,7 @@ def ubah (users : list) -> list:
     username= input("Masukkan username jin : ")
     counter = 0
     for i in range (102) :
-        if users[i]!=[0,0,0] and (username == users[i][0]):
+        if users[i]!=["0","0","0"] and (username == users[i][0]):
             counter = 1
             if (users[i][2]== "jin_pengumpul"):
                 persetujuan=input("\nJin ini bertipe 'Pengumpul'. Yakin ingin mengubah ke tipe 'Pembangun' (Y/N)? ")

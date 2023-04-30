@@ -10,7 +10,7 @@ def laporanjin(user : list, bahan : list , candi : list) -> None:
     print(f"> Total Jin Pembangun: {totJinBangun}")
     totjin=[0 for i in range (100)] #inisialisasi total jin karena maksimal jin hanya 100 (array sementara untuk menampung namajin dan total candi yang dibuat setiap jin)
     for i in range(100): #for loop untuk mencari candi yang kosong
-        if candi[i]!=[0,0,0,0,0]: #jika kosong
+        if candi[i]!=["0","0","0","0","0"]: #jika kosong
             for j in range (100): #for loop untuk mencari username jin
                 if totjin[j]!=0 and totjin[j][0]==candi[i][1]: #jika username jin pembangun dari candi sesuai dengan username jin yang dicari sekarang
                     totjin[j][1]+=1 #total candi yang sudah dibangun oleh jin tersebut ditambah 1
@@ -50,13 +50,13 @@ def laporanjin(user : list, bahan : list , candi : list) -> None:
                     terendah=totjin[i][0] 
                     break
         else: #jika jin lebih dari 1
-            for i in range (100):
+            for i in range (100): 
                 if totjin[i]!=0 and  max==totjin[i][1] :
-                    terendah=totjin[i][0]
+                    terendah=totjin[i][0] #menginisialisasi jin dengan random
                     break
             for i in range (100): #for loop untuk menentukan urutan leksikografis
                 if totjin[i]!=0 and  max==totjin[i][1] and totjin[i][0]<terendah:
-                    terendah=totjin[i][0]   
+                    terendah=totjin[i][0]   #mengupdate nama jin sesuai dengan urutan leksikografis
         if jumlahmin==0: #jika jin hanya 1
             for i in range (100):
                 if totjin[i][1]==min:
@@ -65,11 +65,11 @@ def laporanjin(user : list, bahan : list , candi : list) -> None:
         else: #jika jin lebih dari 1
             for i in range (100):
                 if totjin[i]!=0 and  min==totjin[i][1] :
-                    tertinggi=totjin[i][0]
+                    tertinggi=totjin[i][0] #menginisialisasi jin dengan random
                     break
             for i in range (100): #for loop untuk menentukan urutan leksikografis
                 if totjin[i]!=0 and  min==totjin[i][1] and totjin[i][0]>tertinggi:
-                    tertinggi=totjin[i][0]      
+                    tertinggi=totjin[i][0]   #mengupdate nama jin sesuai dengan urutan leksikografis
         print(f"> Jin Terajin: {terendah}") #output
         print(f"> Jin Termalas: {tertinggi}") #output
     else: #jika tidak ada jin yang dibangun

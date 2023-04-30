@@ -6,16 +6,16 @@ def batchkumpul(users : list , bahan_bangunan : list) -> list:
     totalJin=0
     valid=False
     for i in range (102):
-        if users[i]!=0 and users[i][2]=="jin_pengumpul": #untuk mengecek apakah ada jin pengumpul di dalam array user
+        if users[i]!=["0","0","0"] and users[i][2]=="jin_pengumpul": #untuk mengecek apakah ada jin pengumpul di dalam array user
             valid=True #jika ada maka valid=True
             break
     if valid: #jika ada jin pengumpul
         for i in range (102): #for loop untuk mencari indeks jin pengumpul  
-            if  users[i]!=[0,0,0] and users[i][2]=="jin_pengumpul":
+            if  users[i]!=["0","0","0"] and users[i][2]=="jin_pengumpul":
                 pasir,batu,air = RNG.RNGKumpul()  # assign hasil random number ke variable 
-                bahan_bangunan[0][2] =int(bahan_bangunan[0][2])+ pasir #menambah pasir ke dalam array bahan bangunan
-                bahan_bangunan[1][2] = int(bahan_bangunan[1][2]) +batu #menambah batu ke dalam array bahan bangunan
-                bahan_bangunan[2][2] = int(bahan_bangunan[2][2]) +air #menambah air ke dalam array bahan bangunan
+                bahan_bangunan[0][2] =str(int(bahan_bangunan[0][2])+ pasir) #menambah pasir ke dalam array bahan bangunan
+                bahan_bangunan[1][2] = str(int(bahan_bangunan[1][2]) +batu) #menambah batu ke dalam array bahan bangunan
+                bahan_bangunan[2][2] = str(int(bahan_bangunan[2][2]) +air) #menambah air ke dalam array bahan bangunan
                 totalJin+=1 #menambah total jin
 
                 #menghitung total bahan yang sudah ditemukan
@@ -59,14 +59,14 @@ def batchbangun (users : list , bahan_bangunan :  list, candi : list) -> tuple:
                         ArrayNumber=j # assign indeks ke dalam variable
                         break #jika sudah menemukan indeks yang bukan 0 maka break
                 for j in range (100): #for loop untuk mengecek semua indeks candi yang masih kosong 
-                    if candi[j]==[0,0,0,0,0]: #jika kosong maka akan dibangun candi yang baru, jika sudah penuh maka candi tidak akan dibangun 
-                        candi[j]=[j+1,arrayRandom[ArrayNumber][0],arrayRandom[ArrayNumber][1],arrayRandom[ArrayNumber][2],arrayRandom[ArrayNumber][3]]  # mengganti data candi yang kosong menjadi data candi baru
+                    if candi[j]==["0","0","0","0","0"]: #jika kosong maka akan dibangun candi yang baru, jika sudah penuh maka candi tidak akan dibangun 
+                        candi[j]=[str(j+1),arrayRandom[ArrayNumber][0],str(arrayRandom[ArrayNumber][1]),str(arrayRandom[ArrayNumber][2]),str(arrayRandom[ArrayNumber][3])]  # mengganti data candi yang kosong menjadi data candi baru
                         break  #setelah mengganti data candi maka keluar
                 
                 #mengurang bahan bangunan dari setiap candi, baik candi yang dicatat dalam array candi maupun yang tidak dicatat dalam array candi (Karena jika bahan bangunan mencukupi tetapi candi yang dibangun sudah 100, candi akan tetap berhasil dibangun sehingga bahan bangunan akan tetap dikurang)
-                bahan_bangunan[0][2]=int(bahan_bangunan[0][2])-arrayRandom[ArrayNumber][1]            
-                bahan_bangunan[1][2]=int(bahan_bangunan[1][2])-arrayRandom[ArrayNumber][2]            
-                bahan_bangunan[2][2]=int(bahan_bangunan[2][2])-arrayRandom[ArrayNumber][3]  
+                bahan_bangunan[0][2]=str(int(bahan_bangunan[0][2])-arrayRandom[ArrayNumber][1])            
+                bahan_bangunan[1][2]=str(int(bahan_bangunan[1][2])-arrayRandom[ArrayNumber][2])            
+                bahan_bangunan[2][2]=str(int(bahan_bangunan[2][2])-arrayRandom[ArrayNumber][3]) 
                 arrayRandom[ArrayNumber]=0 #mengganti array random sesuai dengan indeks yang dicari sebelumnya agar menjadi 0 sehingga dalam pencarian selanjutnya tidak terdeteksi kembali   
             return bahan_bangunan,candi #mengembalikan array bahan bangunan dan candi yang sudah diupdate
         else: #jika bahan tidak cukup
