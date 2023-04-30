@@ -1,12 +1,11 @@
 def help(role:str)->None:
+    print("====================== HELP ======================")
     if role=="0":
-        print("====================== HELP ======================")
         print("1. login")
         print("   Untuk masuk menggunakan akun")
         print("2. exit")
         print("   Untuk keluar dari permainan")
     elif role=="bandung_bondowoso":
-        print("===================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
         print("2. summonjin")
@@ -27,7 +26,6 @@ def help(role:str)->None:
         print("   Untuk menyimpan data")
 
     elif role=="roro_jonggrang":
-        print("===================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
         print("2. hancurkancandi")
@@ -38,14 +36,12 @@ def help(role:str)->None:
         print("   Untuk menyimpan data")
     
     elif role=="jin_pembangun":
-        print("====================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
         print("2. bangun")
         print("   Untuk membangun candi")
     
     elif role=="jin_pengumpul":
-        print("====================== HELP ======================")
         print("1. logout")
         print("   Untuk keluar dari akun yang digunakan sekarang")
         print("2. kumpul")
