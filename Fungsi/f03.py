@@ -5,7 +5,7 @@ def validasiPassword(password : str) ->bool:
         print("Password panjangnya harus 5-25 karakter!") 
         return False
     
-def validasiNama(namaJin : str,user_csv : list) -> tuple: #Fungsi untuk mengecek nama di dalam array user apakah sudah ada atau belum
+def validasiNama(namaJin : str,user_csv : list) -> bool: #Fungsi untuk mengecek nama di dalam array user apakah sudah ada atau belum
     for i in range(102): #mengecek dalam array user apakah ada nama yang sama
         if user_csv[i]==["0","0","0"]:
             continue
