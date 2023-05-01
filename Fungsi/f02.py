@@ -3,6 +3,5 @@ def logout(role : str ,username :str) ->tuple:
         print ("Logout gagal!\nAnda belum login , silahkan login terlebih dahulu sebelum melakukan logout")
     else:
         print("Keluar dari Akun...\nLogout Berhasil")
-        role,username="0","0"
-        
+        role,username="0","0"#mengganti  role dan username      
     return role,username

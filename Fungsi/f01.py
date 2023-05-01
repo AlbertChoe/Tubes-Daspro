@@ -5,7 +5,7 @@ def login(user : list,role : str) -> tuple:
         if user[i][0]==username:
             if password==user[i][1]:
                 print (f'\nSelamat datang, {username}!\nMasukkan command “help” untuk daftar command yang dapat kamu panggil.')
-                role=user[i][2]
+                role=user[i][2] #mengganti role menjadi role yang sudah login
                 return role,username
             else:
                 print("\nPassword Salah")
