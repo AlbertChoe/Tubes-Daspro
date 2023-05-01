@@ -143,14 +143,14 @@ def options(commands:str)->None:
     else:
       print("\nSilahkan logout terlebih dulu\n")
   
-  elif commands=="user":
-    print(users)
+  # elif commands=="user": #untuk mengecek
+  #   print(users)
 
-  elif commands=="candi":
-    print(candi)
+  # elif commands=="candi":
+  #   print(candi)
 
-  elif commands=="bahan":
-    print(bahan_bangunan)
+  # elif commands=="bahan":
+  #   print(bahan_bangunan)
     
   else:print("input tidak valid\n")
   
