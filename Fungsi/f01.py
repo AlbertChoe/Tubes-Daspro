@@ -1,4 +1,4 @@
-def login(user : list,role : list) -> tuple:
+def login(user : list,role : str) -> tuple:
     username=input("Username: ")
     password=input("Password: ")
     for i in range (102):
